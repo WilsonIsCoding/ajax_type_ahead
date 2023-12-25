@@ -1,4 +1,4 @@
-import numberWithCommas from "@/app/utils/numberWithCommas";
+import numberWithCommas from "../utils/numberWithCommas";
 export default function Coins({ cities }: { cities: City[] }) {
   if (cities.length == 0) {
     return <h1>There is no result...</h1>;

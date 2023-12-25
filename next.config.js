@@ -2,7 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  output: "export", // 用這行替換原來的 export
+  output: "export",
   images: {
     loader: "akamai",
     path: "",

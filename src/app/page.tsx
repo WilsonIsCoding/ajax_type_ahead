@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Cities from "@/app/components/Cities";
-import SearchCities from "@/app/components/SearchCities";
-import findMatches from "@/app/utils/findMatches";
+import Cities from "./components/Cities";
+import SearchCities from "./components/SearchCities";
+import findMatches from "./utils/findMatches";
 export default function Home() {
   const [cities, setCities] = useState([]);
   const [showCities, setShowCities] = useState([]);
