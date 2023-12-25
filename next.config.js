@@ -3,7 +3,7 @@
  */
 const nextConfig = {
   output: "export",
-  basePath: "/ajax_type_ahead/out",
+  basePath: "/out",
 };
 
 export default nextConfig;
