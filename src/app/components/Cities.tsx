@@ -1,7 +1,5 @@
+import numberWithCommas from "@/app/utils/numberWithCommas";
 export default function Coins({ cities }: { cities: City[] }) {
-  function numberWithCommas(x: string) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
   if (cities.length == 0) {
     return <h1>There is no result...</h1>;
   }

@@ -4,10 +4,6 @@ export default function SearchCoins({
 }: {
   getSearchResults: any;
 }) {
-  const handlerOnChange = (value: string) => {
-    getSearchResults(value);
-  };
-
   return (
     <div className="text-center my-10">
       <div className="relative z-10">
@@ -39,7 +35,7 @@ export default function SearchCoins({
           placeholder="Search something"
           required
           onChange={(e) => {
-            handlerOnChange(e.target.value);
+            getSearchResults(e.target.value);
           }}
           className={`block w-full outline-0 p-4 pl-10 text-sm text-gray-900 bg-white `}
         />
