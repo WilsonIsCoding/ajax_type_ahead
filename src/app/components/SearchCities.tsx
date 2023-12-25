@@ -9,7 +9,7 @@ export default function SearchCoins({
   };
 
   return (
-    <div className="text-center my-20">
+    <div className="text-center my-10">
       <div className="relative z-10">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg

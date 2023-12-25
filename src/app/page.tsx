@@ -8,8 +8,9 @@ export default function Home() {
   const [showCities, setShowCities] = useState([]);
   const [query, setQuery] = useState("");
   const textBoxHandler = (word: string) => {
-    const debounce = setTimeout(() => {
-      clearTimeout(debounce);
+    let debounce
+    clearTimeout(debounce);
+    debounce = setTimeout(() => {
       setQuery(word);
       const result: any = findMatches(word, cities);
       setShowCities(result);
