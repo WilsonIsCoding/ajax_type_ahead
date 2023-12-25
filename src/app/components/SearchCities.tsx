@@ -1,6 +1,10 @@
 "use client";
-export default function SearchCoins({ getSearchResults }) {
-  const handlerOnChange = (value) => {
+export default function SearchCoins({
+  getSearchResults,
+}: {
+  getSearchResults: any;
+}) {
+  const handlerOnChange = (value: string) => {
     getSearchResults(value);
   };
 

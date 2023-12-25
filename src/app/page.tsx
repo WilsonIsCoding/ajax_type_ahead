@@ -1,21 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
 import Cities from "./components/Cities";
-import SearchCoins from "./components/SearchCoins";
+import SearchCities from "./components/SearchCities";
+import findMatches from "../../utils/findMatches";
 export default function Home() {
   const [cities, setCities] = useState([]);
   const [showCities, setShowCities] = useState([]);
   const [query, setQuery] = useState("");
   const textBoxHandler = (word: string) => {
-    setQuery(word);
-    const result = findMatches(word, cities);
-    setShowCities(result);
-  };
-  const findMatches = (wordToMatch: string, data: object[]) => {
-    return data.filter((place) => {
-      const regex = new RegExp(wordToMatch, "gi");
-      return place.city.match(regex) || place.state.match(regex);
-    });
+    const debounce = setTimeout(() => {
+      clearTimeout(debounce);
+      setQuery(word);
+      const result: any = findMatches(word, cities);
+      setShowCities(result);
+    }, 400);
   };
   useEffect(() => {
     const getCities = async () => {
@@ -35,7 +33,10 @@ export default function Home() {
             ? "Type Something For Searching"
             : `Searching result:${query}`}
         </h1>
-        <SearchCoins getSearchResults={(results) => textBoxHandler(results)} />
+        <SearchCities
+          getSearchResults={(results: string) => textBoxHandler(results)}
+        />
+
         <Cities cities={showCities} />
       </div>
     );
