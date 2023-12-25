@@ -5,7 +5,9 @@ import SearchCoins from "./components/SearchCoins";
 export default function Home() {
   const [cities, setCities] = useState([]);
   const [showCities, setShowCities] = useState([]);
+  const [query, setQuery] = useState("");
   const textBoxHandler = (word: string) => {
+    setQuery(word);
     const result = findMatches(word, cities);
     setShowCities(result);
   };
@@ -25,12 +27,19 @@ export default function Home() {
     };
     getCities();
   }, []);
-
-  return (
-    <div className="text-center">
-      <h1 className="font-bold text-6xl mt-14">Type Something For Searching</h1>
-      <SearchCoins getSearchResults={(results) => textBoxHandler(results)} />
-      <Cities cities={showCities} />
-    </div>
-  );
+  if (cities) {
+    return (
+      <div className="text-center">
+        <h1 className="font-bold text-6xl mt-14">
+          {query.length == 0
+            ? "Type Something For Searching"
+            : `Searching result:${query}`}
+        </h1>
+        <SearchCoins getSearchResults={(results) => textBoxHandler(results)} />
+        <Cities cities={showCities} />
+      </div>
+    );
+  } else {
+    <h1>Data downLoading...</h1>;
+  }
 }
