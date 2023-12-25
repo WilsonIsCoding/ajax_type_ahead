@@ -31,7 +31,8 @@
 <p>最好笑的是，花最久的時間竟然是在部署成GitHub-Pages，中間一度甚至想要退一步做gh-page就好，不知道為啥Action部署到最後都會在靜態資源export時失敗，上網查官方文件跟其他人的問答都沒有解法，後來才翻到原來是next.js最新版本裡面next export有在13.5改版後deploy在github page上會出bug...導致action在本地可以build，但線上無法通過(瘋了，花一個下午在看yml)</p>
 
 <h3>詳情請看</h3>
-<p>[問題]([http://localhost:3000](https://www.reddit.com/r/nextjs/comments/16x0eo7/github_actions_and_appdir_not_working/) 
+<p>
+    [問題](https://www.reddit.com/r/nextjs/comments/16x0eo7/github_actions_and_appdir_not_working/) 
 ) </p>
 
 <h2>趕緊來看看！</h2>
@@ -49,5 +50,5 @@ npm run dev
 <h2>或是直接線上看看！</h2>
 
 <p>下載後安裝套件</p>
-[線上網址]([http://localhost:3000](https://wilsoniscoding.github.io/ajax_type_ahead/) 
-) 
+[線上網址](https://wilsoniscoding.github.io/ajax_type_ahead/) 
+
