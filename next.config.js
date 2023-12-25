@@ -2,11 +2,12 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  export: "next export",
+  output: "export", // 用這行替換原來的 export
   images: {
     loader: "akamai",
     path: "",
   },
   assetPrefix: "./",
 };
+
 export default nextConfig;
