@@ -23,7 +23,7 @@ export default function NumberBtn({
   }) => {
     return (
       <button
-        className={`btn page-btn mt-3${activeClass && "active"}`}
+        className={`btn page-btn mt-3 ${activeClass && "active"}`}
         key={pageNumber}
         onClick={() => handlePageChange(pageNumber)}
       >
