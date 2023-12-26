@@ -24,8 +24,9 @@ export default function Home() {
     debounce = setTimeout(() => {
       setQuery(word);
       const result: any = findMatches(word, cities);
-      setShowCities(result);
-      setCurrentPage(1)
+      word.trim().length == 0 ? setShowCities([]) : setShowCities(result);
+      setCurrentPage(1);
+      return;
     }, 400);
   };
   if (cities) {
@@ -39,7 +40,11 @@ export default function Home() {
         <SearchCities
           getSearchResults={(results: string) => textBoxHandler(results)}
         />
-        <Cities cities={showCities} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Cities
+          cities={showCities}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     );
   } else {
