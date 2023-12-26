@@ -7,6 +7,7 @@ export default function Home() {
   const [cities, setCities] = useState([]);
   const [showCities, setShowCities] = useState([]);
   const [query, setQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     const getCities = async () => {
       const response = await fetch(
@@ -24,6 +25,7 @@ export default function Home() {
       setQuery(word);
       const result: any = findMatches(word, cities);
       setShowCities(result);
+      setCurrentPage(1)
     }, 400);
   };
   if (cities) {
@@ -37,7 +39,7 @@ export default function Home() {
         <SearchCities
           getSearchResults={(results: string) => textBoxHandler(results)}
         />
-        <Cities cities={showCities} />
+        <Cities cities={showCities} currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </div>
     );
   } else {

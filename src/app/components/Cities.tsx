@@ -1,13 +1,35 @@
+"use client";
+import { useEffect, useState } from "react";
 import numberWithCommas from "../utils/numberWithCommas";
-export default function Coins({ cities }: { cities: City[] }) {
+import NumberBtn from "./NumberBtn";
+export default function Coins({
+  cities,
+  currentPage,
+  setCurrentPage,
+}: {
+  cities: City[];
+  currentPage: any;
+  setCurrentPage: any;
+}) {
+  const [renderCities, setRenderCities] = useState([]);
+  const renderCitiesNumber = 20;
+  useEffect(() => {
+    const skip = (currentPage - 1) * renderCitiesNumber;
+    const state: any = cities.slice(skip, skip + renderCitiesNumber);
+    setRenderCities(state);
+  }, [cities, currentPage]);
+
+  const numOfPages: any = Math.ceil(cities.length / renderCitiesNumber);
   if (cities.length == 0) {
     return <h1>There is no result...</h1>;
   }
-  const renderCities = cities.slice(0, 20);
   return (
     <>
+      <div className="text-left mt-3 ml-3">
+        共<b>{cities.length}</b>筆搜尋資料{" "}
+      </div>
       <ul className="mx-auto max-w-[1260px] grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {renderCities.map((city) => (
+        {renderCities.map((city: any) => (
           <li key={city.latitude} className="bg-white rounded-lg shadow-md p-6">
             <span className="block text-xl font-bold mb-2">
               {city.city}, {city.state}
@@ -18,6 +40,12 @@ export default function Coins({ cities }: { cities: City[] }) {
           </li>
         ))}
       </ul>
+
+      <NumberBtn
+        numOfPages={numOfPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 }
