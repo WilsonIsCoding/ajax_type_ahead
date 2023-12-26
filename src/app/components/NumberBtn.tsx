@@ -4,21 +4,21 @@ export default function NumberBtn({
   currentPage,
   setCurrentPage,
 }: {
-  numOfPages: any;
-  currentPage: any;
-  setCurrentPage: any;
+  numOfPages: number;
+  currentPage: number;
+  setCurrentPage: (pageNumber: number) => void;
 }) {
   if (numOfPages <= 1) {
     return;
   }
-  const handlePageChange = (pageNumber: Number) => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
   const addPageButton = ({
     pageNumber,
     activeClass,
   }: {
-    pageNumber: any;
+    pageNumber: number;
     activeClass: boolean;
   }) => {
     return (

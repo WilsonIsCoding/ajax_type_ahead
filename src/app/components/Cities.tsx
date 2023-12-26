@@ -8,18 +8,18 @@ export default function Coins({
   setCurrentPage,
 }: {
   cities: City[];
-  currentPage: any;
-  setCurrentPage: any;
+  currentPage: number;
+  setCurrentPage: (pageNumber: number) => void;
 }) {
-  const [renderCities, setRenderCities] = useState([]);
+  const [renderCities, setRenderCities] = useState<City[]>([]);
   const renderCitiesNumber = 20;
   useEffect(() => {
     const skip = (currentPage - 1) * renderCitiesNumber;
-    const state: any = cities.slice(skip, skip + renderCitiesNumber);
+    const state = cities.slice(skip, skip + renderCitiesNumber);
     setRenderCities(state);
   }, [cities, currentPage]);
 
-  const numOfPages: any = Math.ceil(cities.length / renderCitiesNumber);
+  const numOfPages: number = Math.ceil(cities.length / renderCitiesNumber);
   if (cities.length == 0) {
     return <h1>There is no result...</h1>;
   }
@@ -29,7 +29,7 @@ export default function Coins({
         共<b>{cities.length}</b>筆搜尋資料{" "}
       </div>
       <ul className="mx-auto max-w-[1260px] grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {renderCities.map((city: any) => (
+        {renderCities.map((city: City) => (
           <li key={city.latitude} className="bg-white rounded-lg shadow-md p-6">
             <span className="block text-xl font-bold mb-2">
               {city.city}, {city.state}

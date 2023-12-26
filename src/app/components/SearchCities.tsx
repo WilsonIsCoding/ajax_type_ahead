@@ -2,7 +2,7 @@
 export default function SearchCoins({
   getSearchResults,
 }: {
-  getSearchResults: any;
+  getSearchResults: string;
 }) {
   return (
     <div className="text-center my-10">

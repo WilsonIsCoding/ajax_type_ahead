@@ -4,8 +4,8 @@ import Cities from "./components/Cities";
 import SearchCities from "./components/SearchCities";
 import findMatches from "./utils/findMatches";
 export default function Home() {
-  const [cities, setCities] = useState([]);
-  const [showCities, setShowCities] = useState([]);
+  const [cities, setCities] = useState<City[]>([]);
+  const [showCities, setShowCities] = useState<City[]>([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Home() {
     clearTimeout(debounce);
     debounce = setTimeout(() => {
       setQuery(word);
-      const result: any = findMatches(word, cities);
+      const result: City[] = findMatches(word, cities);
       word.trim().length == 0 ? setShowCities([]) : setShowCities(result);
       setCurrentPage(1);
       return;
